@@ -33,9 +33,9 @@ public class Main {
 
                     RicercaAlunno(NomeAlunno, CognomeAlunno);}
 
-                case 0 -> System.out.println("Arrivederci!");
+                case 0 -> System.out.println("\nArrivederci!");
 
-                default -> System.out.println("Scelta non valida.");
+                default -> System.out.println("\nScelta non valida.");
             }
         } while (scelta != 0);
 
@@ -57,9 +57,9 @@ public class Main {
     private static void StampaClasse() {
         System.out.print("\nNella classe sono presenti:\n");
 
-        int i=0;
+        int i=1;
         for (Alunno alunno : classe) {
-            System.out.println(i+1 + ". " + alunno.nome() + " " + alunno.cognome());
+            System.out.println(i + ". " + alunno.nome() + " " + alunno.cognome());
             i++;
         }
     }
