@@ -25,13 +25,7 @@ public class Main {
 
                 case 2 -> StampaClasse();
 
-                case 3 -> {System.out.print("\nInserisci il nome dell'alunno da cercare: ");
-                    String NomeAlunno = scanner.next().toLowerCase();
-
-                    System.out.print("Inserisci il cognome dell'alunno da cercare: ");
-                    String CognomeAlunno = scanner.next().toLowerCase();
-
-                    RicercaAlunno(NomeAlunno, CognomeAlunno);}
+                case 3 -> RicercaAlunno();
 
                 case 0 -> System.out.println("\nArrivederci!");
 
@@ -55,30 +49,44 @@ public class Main {
     }
 
     private static void StampaClasse() {
-        System.out.print("\nNella classe sono presenti:\n");
+        if (classe.isEmpty()) {
+            System.out.print("\nLa classe non contiene alunni.\n");
+        } else {
+            System.out.print("\nNella classe sono presenti:\n");
 
-        int i=1;
-        for (Alunno alunno : classe) {
-            System.out.println(i + ". " + alunno.nome() + " " + alunno.cognome());
-            i++;
+            int i=1;
+            for (Alunno alunno : classe) {
+                System.out.println(i + ". " + alunno.nome() + " " + alunno.cognome());
+                i++;
+            }
         }
     }
 
-    private static void RicercaAlunno(String NomeAlunno, String CognomeAlunno) {
-        boolean trovato = false;
+    private static void RicercaAlunno() {
+        if (classe.isEmpty()) {
+            System.out.print("\nLa classe non contiene alunni.\n");
+        } else {
+            boolean trovato = false;
 
-        for (Alunno alunno : classe) {
-            if (alunno.nome().equals(NomeAlunno)) {
-                if (alunno.cognome().equals(CognomeAlunno)) {
-                    trovato = true;
+            System.out.print("\nInserisci il nome dell'alunno da cercare: ");
+            String NomeAlunno = scanner.next().toLowerCase();
+
+            System.out.print("Inserisci il cognome dell'alunno da cercare: ");
+            String CognomeAlunno = scanner.next().toLowerCase();
+
+            for (Alunno alunno : classe) {
+                if (alunno.nome().equals(NomeAlunno)) {
+                    if (alunno.cognome().equals(CognomeAlunno)) {
+                        trovato = true;
+                    }
                 }
             }
-        }
 
-        if (trovato) {
-            System.out.println("\nL'alunno è presente.");
-        } else {
-            System.out.println("\nNon ci sono alunni con quel nome.");
+            if (trovato) {
+                System.out.println("\nL'alunno è presente.");
+            } else {
+                System.out.println("\nNon ci sono alunni con quel nome.");
+            }
         }
     }
 }
