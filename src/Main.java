@@ -15,7 +15,7 @@ public class Main {
                     1. Inserisci anagrafica dello studente
                     2. Stampa la classe
                     3. Ricerca
-                    0.Esci""");
+                    0. Esci""");
 
             System.out.print("\nScelta: ");
             scelta = scanner.nextInt();
