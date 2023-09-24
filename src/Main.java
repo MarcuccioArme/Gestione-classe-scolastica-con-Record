@@ -22,11 +22,19 @@ public class Main {
 
             switch (scelta) {
                 case 1 -> AggiungiAlunno();
+
                 case 2 -> StampaClasse();
+
                 case 3 -> {System.out.print("\nInserisci il nome dell'alunno da cercare: ");
                     String NomeAlunno = scanner.next().toLowerCase();
-                    RicercaAlunno(NomeAlunno);}
+
+                    System.out.print("Inserisci il cognome dell'alunno da cercare: ");
+                    String CognomeAlunno = scanner.next().toLowerCase();
+
+                    RicercaAlunno(NomeAlunno, CognomeAlunno);}
+
                 case 0 -> System.out.println("Arrivederci!");
+
                 default -> System.out.println("Scelta non valida.");
             }
         } while (scelta != 0);
@@ -56,19 +64,21 @@ public class Main {
         }
     }
 
-    private static void RicercaAlunno(String NomeAlunno) {
+    private static void RicercaAlunno(String NomeAlunno, String CognomeAlunno) {
         boolean trovato = false;
 
         for (Alunno alunno : classe) {
             if (alunno.nome().equals(NomeAlunno)) {
-                System.out.println(alunno.nome() + " " + alunno.cognome());
-
-                trovato = true;
+                if (alunno.cognome().equals(CognomeAlunno)) {
+                    trovato = true;
+                }
             }
         }
 
-        if (!trovato) {
-            System.out.println("Non ci sono persone con quel nome.");
+        if (trovato) {
+            System.out.println("\nL'alunno è presente.");
+        } else {
+            System.out.println("\nNon ci sono alunni con quel nome.");
         }
     }
 }
