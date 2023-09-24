@@ -22,13 +22,9 @@ public class Main {
 
             switch (scelta) {
                 case 1 -> AggiungiAlunno();
-
                 case 2 -> StampaClasse();
-
                 case 3 -> RicercaAlunno();
-
                 case 0 -> System.out.println("\nArrivederci!");
-
                 default -> System.out.println("\nScelta non valida.");
             }
         } while (scelta != 0);
